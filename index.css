@@ -1,0 +1,219 @@
+:root {
+    /* Neutral colors */
+    --clr-palest-blue: 225, 100%, 98%;
+    --clr-desaturated-blue: 224, 23%, 55%;
+    --clr-dark-blue: 223, 47%, 23%;
+
+    /* Primary Colors */
+    --clr-pale-blue: 225, 100%, 94%;
+    --clr-bright-blue: 245, 75%, 52%;
+
+    --clr-text: 0 0 0 / 0.5;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+figure,
+picture {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+optgroup,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+body {
+    height: 100vh;
+    background-image: url(./images/pattern-background-desktop.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: hsl( var(--clr-pale-blue) );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0 0 0 / 0.5);
+}
+
+main {
+    font-family: "Red Hat Display", sans-serif;
+}
+
+.card {
+    display: grid;
+    border-radius: 10px;
+}
+
+.order-summary {
+    grid-template-columns: minmax(0, 28em);
+    grid-template-areas:
+        "image"
+        "title"
+        "text"
+        "plan-details"
+        "payment-button"
+        "cancel-button";
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    overflow: hidden;
+    margin: 2em;
+}
+
+.order-summary > img {
+    grid-area: image;
+    width: 100%;
+}
+
+h1 {
+    grid-area: title;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-top: 1.5em;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+.main-text {
+    grid-area: text;
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 40ch;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.plan-details {
+    grid-area: plan-details;
+    width: 75%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: hsl( var(--clr-palest-blue) );
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1.5rem 1.5rem;
+    grid-template-areas:
+        "image heading link"
+        "image details link";
+    grid-row-gap: 0.25em;
+    align-items: center;
+}
+
+.plan-details > img {
+    grid-area: image;
+}
+
+.plan-details > h2 {
+    grid-area: heading;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.plan-details > p {
+    grid-area: details;
+    text-align: left;
+}
+
+.plan-details > a {
+    grid-area: link;
+    justify-self: center;
+    color: hsl( var(--clr-dark-blue) );
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.button {
+    padding: 1rem 6rem;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.payment-button {
+    grid-area: payment-button;
+    margin-bottom: 1rem;
+    background-color: hsl( var(--clr-bright-blue) );
+    color: white;
+    box-shadow: 0px 1rem 0.5rem hsl( var(--clr-pale-blue) );
+}
+
+.cancel-button {
+    color: hsl( var(--clr-text) );
+    grid-area: cancel-button;
+    margin-bottom: 1rem;
+}
+
+.test-div {
+    width: 1000px;
+    height:50px;
+    text-align: center;
+  }
+
+@media (max-width: 60em) {
+    body {
+        background-image: none;
+    }
+
+    .button {
+        padding: 1rem 4rem;
+    }
+}
+
+@media (max-width: 35em) {
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .main-text {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        padding: 1rem 3rem;
+    }
+
+    .plan-details {
+        width: 90%;
+    }
+}
